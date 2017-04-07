@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                <b>Crear Usuario</b>
+                                <b>Crear Sucursal</b>
                             </h2>
 
                         </div>

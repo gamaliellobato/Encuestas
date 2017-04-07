@@ -132,10 +132,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="">Agregar Sucursal</a>
+                                <a href="<?= base_url()?>sucursales">Agregar Sucursal</a>
                             </li>
                             <li>
-                                <a href="">Lista de Sucursales</a>
+                                <a href="<?= base_url()?>listaSucursales">Lista de Sucursales</a>
                             </li>
                             
                         </ul>

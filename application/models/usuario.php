@@ -8,7 +8,7 @@ class Usuario extends CI_Model
 	
 	public function obtenerUsuario($usuario = '')
 	{
-		$result = $this->db->query("SELECT * FROM usuarios WHERE usuario = '" . $usuario . "' LIMIT 1");
+		$result = $this->db->query("SELECT * FROM usuario WHERE usuario = '" . $usuario . "' LIMIT 1");
 		if ($result->num_rows() > 0) 
 		{
             return $result->row();
@@ -19,7 +19,7 @@ class Usuario extends CI_Model
         }
 	}
 
-	public function agregarUsuario($nombre, $paterno, $materno, $email, $password, $rol, $sucursal)
+	public function agregarUsuario($nombre, $paterno, $materno, $email, $usuario, $password, $rol, $sucursal)
     {
         $status = 1;
         $data   = array(
@@ -27,7 +27,7 @@ class Usuario extends CI_Model
             'paterno'     => $paterno,
             'materno'     => $materno,
             'email'       => $email,
-            'usuario'     => "admin",
+            'usuario'     => $usuario,
             'password'    => $password,
             'id_rol'      => $rol,
             'id_sucursal' => $sucursal,
@@ -36,7 +36,7 @@ class Usuario extends CI_Model
 
         //$this->db->query();
 
-        $this->db->insert('usuarios', $data);
+        $this->db->insert('usuario', $data);
     }
 }
 

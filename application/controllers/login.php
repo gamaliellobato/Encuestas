@@ -9,8 +9,8 @@ class Login extends CI_Controller
 	
 	public function index()
 	{
-		$usuario      = $this->input->post('usuario');
-		$password   = $this->input->post('password');
+		$usuario    = $this->input->post('usuario');
+		$password   = md5($this->input->post('password'));
 
 		//echo $email ."  ". md5($password);
 		$this->load->model('usuario');
@@ -29,7 +29,7 @@ class Login extends CI_Controller
 
 			$this->session->set_userdata($data);
 			//echo "se inicio";	
-			header("Location: http://localhost/codeigniter/dashboard");
+			header("Location: http://localhost/likequest/dashboard");
 			
 			}
 			else
