@@ -12,31 +12,7 @@
 
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST" action="<?=base_url()?>usuarios/crearUsuario">
-
-                                <div class="form-group form-float">
-                                    <p>
-                                        <b>Sucursal</b>
-                                    </p>
-                                    <select class="form-control show-tick" data-live-search="true" title="Selecciona una sucursal" name="sucursal">
-                                        <option value="1">gamaliel</option>
-                                        <option value="2">lobato</option>
-                                        <option value="3">Sugar, Spice and all things nice</option>
-                                        <option value="4">a</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <p>
-                                        <b>Rol</b>
-                                    </p>
-                                    <select class="form-control show-tick" data-live-search="true" title="Selecciona una rol" name="rol">
-                                        <option value="1">gamaliel</option>
-                                        <option value="2">lobato</option>
-                                        <option value="3">Sugar, Spice and all things nice</option>
-                                        <option value="4">a</option>
-                                    </select>
-                                </div>
+                            <form id="form_validation" method="POST" action="<?=base_url()?>sucursales/crearSucursal">
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -47,36 +23,15 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="paterno" required>
-                                        <label class="form-label">Apellido Paterno</label>
+                                        <input type="text" class="form-control" name="direccion" required>
+                                        <label class="form-label">Dirección</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="materno" required>
-                                        <label class="form-label">Apellido Materno</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required>
-                                        <label class="form-label">Email</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="usuario" required>
-                                        <label class="form-label">Usuario</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="password" class="form-control" name="password" required>
-                                        <label class="form-label">Password</label>
+                                        <input type="text" class="form-control" name="telefono" required>
+                                        <label class="form-label">Teléfono</label>
                                     </div>
                                 </div>
 

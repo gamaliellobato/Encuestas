@@ -65,7 +65,7 @@ class Usuarios extends CI_Controller
             //$this->load->view("usuario");
         } else {
             echo "no";
-            redirect(base_url("usuario"), "");
+            redirect(base_url("usuarios"), "");
             //$this->load->view("usuario");
         }
     }

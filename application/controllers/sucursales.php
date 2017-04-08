@@ -39,23 +39,30 @@ class Sucursales extends CI_Controller
         /**/
     }
 	
-	public function sucursalId($id = '')
-	{
-		$this->load->model('sucursales');
-		$fila = $this->sucursales->getSucursalesById($id);
+    public function crearSucursal()
+    {
+        //Se carga el modelo Usuario
+        $this->load->model('sucursal');
 
-		$data = array('title' => 'Dashboard', 'app' => 'Likequest');
-        $this->load->view("guest/head", $data);
-        $data = array('mensaje' => 'estas en dashboard');
-        $this->load->model('sucursales');
-        
-        $result = $this->sucursales->getSucursales();
-        $data   = array('consulta' => $result);
-        $this->load->view("sucursal/crearSucursal", $data);
-        $this->load->view("guest/nav");
-        $this->load->view("guest/footer");
+        $nombre      = $this->input->post('nombre');
+        $direccion   = $this->input->post('direccion');
+        $telefono    = $this->input->post('telefono');
 
-	}
+        $fila = $this->sucursal->agregarSucursal($nombre, $direccion, $telefono);
+
+        //echo $fila;
+
+        if ($fila = true) {
+            echo "si";
+            redirect(base_url("sucursales"), "");
+
+            //$this->load->view("usuario");
+        } else {
+            echo "no";
+            redirect(base_url("sucursales"), "");
+            //$this->load->view("usuario");
+        }
+    }
 }
 
  ?>
