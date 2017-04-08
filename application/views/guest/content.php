@@ -44,16 +44,7 @@
                     </div>
                 </form>
 
-                <!-- <?php  foreach ($consulta->result() as $fila) {
-                    
-                
-                ?>
-                <a href="<?= base_url()?>sucursal/sucursalId/<?= $fila->id_sucursales ?>">
-                    <h1><?=$fila->nombre; ?></h1>
-                </a>
-                <?php
-                } ?> -->
-             
+               
             </div>
         </div>
     </div>

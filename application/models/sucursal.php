@@ -5,6 +5,10 @@
 */
 class Sucursal extends CI_Model
 {
+    public function obtenerSucursales()
+    {
+        
+    }
 	
 	public function agregarSucursal($nombre, $direccion, $telefono)
     {
