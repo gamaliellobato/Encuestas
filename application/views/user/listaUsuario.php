@@ -27,6 +27,7 @@
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
+                                        <th>Id</th>
                                         <th>Nombres</th>
                                         <th>Paterno</th>
                                         <th>Materno</th>
@@ -38,6 +39,7 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>Id</th>
                                         <th>Nombres</th>
                                         <th>Paterno</th>
                                         <th>Materno</th>
@@ -48,16 +50,22 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
+                                <?php
+                                    foreach ($consulta->result() as $fila) {
+                                ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td> 
-                                        <td></td>
-                                        <td></td>
+                                        <td><?= $fila->id_usuarios ?></td>
+                                        <td><?= $fila->nombres ?></td>
+                                        <td><?= $fila->paterno ?></td>
+                                        <td><?= $fila->materno ?></td>
+                                        <td><?= $fila->email ?></td> 
+                                        <td><?= $fila->nombre_suc ?></td>
+                                        <td><?= $fila->nombre_rol ?></td>
                                         <td></td>
                                     </tr>
-                                    
+                                <?php 
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
