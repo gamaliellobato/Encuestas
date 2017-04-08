@@ -7,9 +7,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                <b>Crear Usuario</b>
+                                CREAR USUARIO
                             </h2>
-
                         </div>
                         <div class="body">
                             <form id="form_validation" method="POST" action="<?=base_url()?>usuarios/crearUsuario">
@@ -17,15 +16,11 @@
                                 <div class="form-group form-float">
                                     <p>
                                         <b>Sucursal</b>
+                                        
                                     </p>
-                                    <select class="form-control show-tick" data-live-search="true" title="Selecciona una sucursal" name="sucursal">
-                                        <option value="1">gamaliel</option>
-                                        <option value="2">lobato</option>
-                                        <option value="3">Sugar, Spice and all things nice</option>
-                                        <option value="4">a</option>
-                                    </select>
+                                    <?= $consulta;?>
                                 </div>
-
+                                
                                 <div class="form-group form-float">
                                     <p>
                                         <b>Rol</b>

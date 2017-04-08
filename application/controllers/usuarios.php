@@ -28,7 +28,8 @@ class Usuarios extends CI_Controller
 
         $data = array('mensaje' => 'estas en dashboard');
 
-        $result = $this->db->get('sucursales');
+        $this->load->model('sucursal');
+        $result = $this->sucursal->obtenerSucursales();
         $data   = array('consulta' => $result);
 
         $this->load->view("user/crearUsuario", $data);
