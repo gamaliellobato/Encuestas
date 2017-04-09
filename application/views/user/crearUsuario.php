@@ -18,19 +18,14 @@
                                         <b>Sucursal</b>
                                         
                                     </p>
-                                    <?= $consulta;?>
+                                    <?= $sucursal;?>
                                 </div>
                                 
                                 <div class="form-group form-float">
                                     <p>
                                         <b>Rol</b>
                                     </p>
-                                    <select class="form-control show-tick" data-live-search="true" title="Selecciona una rol" name="rol">
-                                        <option value="1">gamaliel</option>
-                                        <option value="2">lobato</option>
-                                        <option value="3">Sugar, Spice and all things nice</option>
-                                        <option value="4">a</option>
-                                    </select>
+                                   <?= $rol;?>
                                 </div>
 
                                 <div class="form-group form-float">

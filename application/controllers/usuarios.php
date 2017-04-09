@@ -29,8 +29,15 @@ class Usuarios extends CI_Controller
         $data = array('mensaje' => 'estas en dashboard');
 
         $this->load->model('sucursal');
-        $result = $this->sucursal->obtenerSucursales();
-        $data   = array('consulta' => $result);
+        $suc = $this->sucursal->obtenerSucursales();
+
+        $this->load->model('rol');
+        $rol = $this->rol->obtenerRoles();
+
+        $data = array(
+                'sucursal' => $suc,
+                'rol' => $rol
+                );
 
         $this->load->view("user/crearUsuario", $data);
         $this->load->view("guest/nav");

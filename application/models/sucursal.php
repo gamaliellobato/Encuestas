@@ -17,7 +17,6 @@ class Sucursal extends CI_Model
             }
         $suc .= "</select>" ;                               
                                         
-                                    
         return $suc;
     }
 	
