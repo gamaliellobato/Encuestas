@@ -14,7 +14,7 @@ class Sucursales extends CI_Controller
         }
         else
         {
-            echo "no";
+            //echo "no";
         }
 	}
 

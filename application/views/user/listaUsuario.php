@@ -34,7 +34,8 @@
                                         <th>Email</th>
                                         <th>Sucursal</th>
                                         <th>Rol</th>
-                                        <th>Accion</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -46,14 +47,16 @@
                                         <th>Email</th>
                                         <th>Sucursal</th>
                                         <th>Rol</th>
-                                        <th>Accion</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php
+                                $id = 0;
                                     foreach ($consulta->result() as $fila) {
                                 ?>
-                                    <tr>
+                                    <tr id='tr<?= $fila->id_usuarios ?>'>
                                         <td><?= $fila->id_usuarios ?></td>
                                         <td><?= $fila->nombres ?></td>
                                         <td><?= $fila->paterno ?></td>
@@ -61,9 +64,11 @@
                                         <td><?= $fila->email ?></td> 
                                         <td><?= $fila->nombre_suc ?></td>
                                         <td><?= $fila->nombre_rol ?></td>
-                                        <td></td>
+                                        <td><button class="btn btn-info">Modificar</button></td>
+                                        <td><button name="<?= $fila->nombres ?>" class="btn btn-danger" id='<?= $fila->id_usuarios ?>'>Eliminar</button></td>
                                     </tr>
                                 <?php 
+                                $id++;
                                 }
                                 ?>
                                 </tbody>
@@ -75,3 +80,40 @@
             <!-- #END# Exportable Table -->
         </div>
     </section>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("button").on("click", function(e){
+                //var name = $(this).attr('name');
+                //console.log(name);
+                var id = $(this).attr('id');
+                //console.log(id);
+                var request;
+
+                if (request) {
+                    request.abort();
+                }
+
+                request = $.ajax({
+                    url: "<?php echo base_url('usuarios/borrarUsuario')?>",
+                    type: "POST",
+                    data: "id=" + id
+                });
+
+                request.done(function(response, textStatus, jqXHR){
+                    console.log("response: " + response);
+                    $("#tr" + response).html("");
+                });
+
+                request.fail(function(jqXHR, textStatus, thrown){
+                    console.log("Error:" + textStatus);
+                });
+
+                request.always(function(){
+                    console.log("Termino la ejecucion ajax");
+                });
+
+                e.preventDefault();
+            });
+        });
+    </script> 

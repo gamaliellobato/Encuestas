@@ -15,7 +15,7 @@ class ListaUsuarios extends CI_Controller
         }
         else
         {
-            echo "no";
+            //echo "no";
         }
 	}
 
@@ -36,7 +36,7 @@ class ListaUsuarios extends CI_Controller
         $this->load->view("user/listaUsuario", $data);
         $this->load->view("guest/nav");
 
-        $data = array('post' => 'Blog', 'descripcion' => 'Biendvenido al dashboard de codeiniter');
+        $data = array('post' => 'Blog', 'descripcion' => 'Bienvenido al dashboard de codeiniter');
         $this->load->view("guest/footer");
 	}
 

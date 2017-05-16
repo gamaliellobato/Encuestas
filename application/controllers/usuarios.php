@@ -15,7 +15,7 @@ class Usuarios extends CI_Controller
         }
         else
         {
-            echo "no";
+            //echo "no";
         }
     }
 
@@ -76,6 +76,28 @@ class Usuarios extends CI_Controller
             redirect(base_url("usuarios"), "");
             //$this->load->view("usuario");
         }
+    }
+
+    public function borrarUsuario()
+    {
+        //Se carga el modelo Usuario
+        $this->load->model('usuario');
+
+        $usuario = $this->input->post();
+        $id = $usuario['id'];
+
+        $sql = "UPDATE usuario SET status = 0 WHERE id_usuarios = '$id'";
+
+        if ($this->db->query($sql)) 
+        {
+            echo $id;
+        }
+        else
+        {
+            echo false;
+        }
+
+        /*echo $id;*/
     }
 }
 
