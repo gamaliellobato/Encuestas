@@ -10,7 +10,7 @@ class Rol extends CI_Controller
     {   
         $consulta = $this->db->get('roles');
         $rol ="";
-        $rol .= "<select class='form-control show-tick' data-live-search='true' title='Selecciona una sucursal' name='sucursal'>";
+        $rol .= "<select required id='rol' class='form-control show-tick' data-live-search='true' title='Selecciona una sucursal' name='rol'>";
             foreach ($consulta->result() as $fila) {
                 ;
                                             

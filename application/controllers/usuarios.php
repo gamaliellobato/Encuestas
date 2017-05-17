@@ -99,6 +99,72 @@ class Usuarios extends CI_Controller
 
         /*echo $id;*/
     }
+
+    public function modificar($id)
+    {
+        //Se carga el modelo Usuario
+        $this->load->model('usuario');
+
+        $fila = $this->usuario->obtenerUsuarioById($id);
+
+        //echo $fila->nombres;
+
+
+        $data = array('title' => 'Dashboard', 'app' => 'Likequest');
+        $this->load->view("guest/head", $data);
+
+        $data = array('mensaje' => 'estas en dashboard');
+
+        $this->load->model('sucursal');
+        $suc = $this->sucursal->obtenerSucursales();
+
+        $this->load->model('rol');
+        $rol = $this->rol->obtenerRoles();
+
+        $data = array(
+                'sucursal' => $suc,
+                'rol' => $rol
+                );
+
+        $data['row'] = $fila;
+        $this->load->view("user/modificarUsuario", $data);
+        $this->load->view("guest/nav");
+
+        $data = array('post' => 'Blog', 'descripcion' => 'Biendvenido al dashboard de codeiniter');
+        $this->load->view("guest/footer");
+    }
+
+     public function modificarUsuario()
+    {
+        //Se carga el modelo Usuario
+        $this->load->model('usuario');
+
+        $id          = $this->input->post('id');
+        $nombre      = $this->input->post('nombre');
+        $paterno     = $this->input->post('paterno');
+        $materno     = $this->input->post('materno');
+        $email       = $this->input->post('email');
+        $usuario     = $this->input->post('usuario');
+        $password    = md5($this->input->post('password'));
+        $id_rol      = $this->input->post('rol');
+        $id_sucursal = $this->input->post('sucursal');
+
+        $fila = $this->usuario->actualizarUsuario($id, $nombre, $paterno, $materno, $email,$usuario, $password, $id_rol, $id_sucursal);
+
+        //echo $fila;
+
+        if ($fila = true) {
+            echo "si";
+            redirect(base_url("listaUsuarios"), "");
+
+            //$this->load->view("usuario");
+        } else {
+            echo "no";
+            redirect(base_url("listaUsuarios"), "");
+            //$this->load->view("usuario");
+        }
+    }
+
 }
 
  ?>

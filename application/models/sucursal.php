@@ -5,11 +5,12 @@
 */
 class Sucursal extends CI_Model
 {
+
     public function obtenerSucursales()
     {   
         $consulta = $this->db->get('sucursales');
         $suc ="";
-        $suc .= "<select class='form-control show-tick' data-live-search='true' title='Selecciona una sucursal' name='sucursal'>";
+        $suc .= "<select required id='sucursal' class='form-control show-tick' data-live-search='true' title='Selecciona una sucursal' name='sucursal'>";
             foreach ($consulta->result() as $fila) {
                 ;
                                             

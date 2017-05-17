@@ -64,7 +64,7 @@
                                         <td><?= $fila->email ?></td> 
                                         <td><?= $fila->nombre_suc ?></td>
                                         <td><?= $fila->nombre_rol ?></td>
-                                        <td><button class="btn btn-info">Modificar</button></td>
+                                        <td><a href="<?= base_url('usuarios/modificar')?>/<?=$fila->id_usuarios?>" class="btn btn-info">Modificar</a></td>
                                         <td><button name="<?= $fila->nombres ?>" class="btn btn-danger" id='<?= $fila->id_usuarios ?>'>Eliminar</button></td>
                                     </tr>
                                 <?php 
