@@ -5,7 +5,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                MODIFICAR USUAR
+                                MODIFICAR USUARIO
                             </h2>
                         </div>
                         <?php 
