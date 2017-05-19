@@ -28,7 +28,8 @@ class ListaSucursales extends CI_Controller
 
         $data = array('mensaje' => 'estas en dashboard');
 
-        $result = $this->db->get('sucursales');
+        $this->load->model('sucursal');
+        $result = $this->sucursal->listarSucursales();
         $data   = array('consulta' => $result);
 
         $this->load->view("sucursal/listaSucursales", $data);

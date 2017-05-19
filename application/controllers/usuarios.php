@@ -97,7 +97,6 @@ class Usuarios extends CI_Controller
             echo false;
         }
 
-        /*echo $id;*/
     }
 
     public function modificar($id)
@@ -134,7 +133,7 @@ class Usuarios extends CI_Controller
         $this->load->view("guest/footer");
     }
 
-     public function modificarUsuario()
+    public function modificarUsuario()
     {
         //Se carga el modelo Usuario
         $this->load->model('usuario');

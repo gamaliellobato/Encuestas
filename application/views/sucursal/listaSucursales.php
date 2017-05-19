@@ -27,42 +27,41 @@
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                       <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Modificar</th>
+                                        <th>Eliminar</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                <?php
+                                $id = 0;
+                                    foreach ($consulta->result() as $fila) {
+                                ?>
+                                    <tr id='tr<?= $fila->id_sucursales ?>'>
+                                        <td><?= $fila->id_sucursales ?></td>
+                                        <td><?= $fila->nombre_suc ?></td>
+                                        <td><?= $fila->direccion ?></td>
+                                        <td><?= $fila->telefono ?></td>
+                                        <td><a href="<?= base_url('sucursales/modificar')?>/<?=$fila->id_sucursales?>" class="btn btn-info">Modificar</a></td>
+                                        <td><button name="<?= $fila->nombre_suc ?>" class="btn btn-danger" id='<?= $fila->id_sucursales ?>'>Eliminar</button></td>
                                     </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>$170,750</td>
-                                    </tr>
-                                    
+                                <?php 
+                                $id++;
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -72,3 +71,40 @@
             <!-- #END# Exportable Table -->
         </div>
     </section>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("button").on("click", function(e){
+                //var name = $(this).attr('name');
+                //console.log(name);
+                var id = $(this).attr('id');
+                //console.log(id);
+                var request;
+
+                if (request) {
+                    request.abort();
+                }
+
+                request = $.ajax({
+                    url: "<?php echo base_url('sucursales/borrarSucursal')?>",
+                    type: "POST",
+                    data: "id=" + id
+                });
+
+                request.done(function(response, textStatus, jqXHR){
+                    console.log("response: " + response);
+                    $("#tr" + response).html("");
+                });
+
+                request.fail(function(jqXHR, textStatus, thrown){
+                    console.log("Error:" + textStatus);
+                });
+
+                request.always(function(){
+                    console.log("Termino la ejecucion ajax");
+                });
+
+                e.preventDefault();
+            });
+        });
+    </script> 
